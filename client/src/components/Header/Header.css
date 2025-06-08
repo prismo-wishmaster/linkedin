@@ -1,0 +1,49 @@
+header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 3.1rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border-gray);
+  background: var(--background-color);
+}
+
+.header {
+  display: flex;
+  flex-basis: var(--max-width);
+  --border-radius: 3px;
+  --margin-left: 10px;
+}
+
+.logo {
+  height: 100%;
+  background-color: var(--blue-linkedin);
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radius);
+}
+
+input {
+  flex-basis: 150px;
+  border-radius: var(--border-radius);
+  margin-left: var(--margin-left);
+  background: var(--blue-background-component);
+  border: none;
+}
+
+.search-button {
+  border: none;
+  width: 100px;
+  height: 100%;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--blue-linkedin);
+  margin-left: var(--margin-left);
+  border-radius: 40px;
+  outline: 1px solid var(--blue-linkedin);
+  background-color: var(--background-color);
+}
+
+.search-button:hover {
+  border: 1px solid var(--blue-linkedin);
+  background-color: var(--blue-background-component);
+}

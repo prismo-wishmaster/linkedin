@@ -1,0 +1,73 @@
+article {
+  display: flex;
+  padding: 12px 0 0 12px;
+  cursor: pointer;
+}
+
+.logo-image {
+  width: 56px;
+  height: 56px;
+}
+
+.description {
+  display: flex;
+  width: 100%;
+  padding: 0 0 15px 15px;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border-gray);
+  gap: 10px;
+}
+
+.font {
+  font-family: var(--font-family);
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.font--job-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--blue-linkedin);
+}
+
+article:hover .font--job-title {
+  text-decoration: underline;
+}
+
+article:focus {
+  border-left: 2px solid black;
+}
+
+.font--company-title {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.font--location {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.align-center {
+  display: flex;
+  align-items: center;
+}
+
+.properties {
+  display: flex;
+  gap: 11px;
+}
+
+.font--small {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.check-mark {
+  margin: 0 10px;
+  width: 17px;
+  height: 17px;
+}
