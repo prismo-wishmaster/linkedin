@@ -5,6 +5,9 @@ import { useCardJobInfo } from "../../hooks/useCardJobInfo";
 import { CardJob } from "../../components/CardJob/CardJob";
 import { useEffect } from "react";
 import { useCardJobStore } from "../../store/CardJob/CardJob.store";
+import { Pagination } from "../../components/Pagination/Pagination";
+import { Footer } from "../../components/Footer/Footer";
+import { JobApplication } from "../../components/JobApplication/JobApplication";
 
 export const Jobs = () => {
   const { cardsJob, getCardsJob } = useCardJobInfo();
@@ -33,31 +36,12 @@ export const Jobs = () => {
 
             return <CardJob key={id} jobOffer={jobOffer} idCard={id} />;
           })}
-          <div className="pagination">
-            <ul className="pages">
-              <li className="pagination--font">1</li>
-              <li className="pagination--font">2</li>
-              <li className="pagination--font">3</li>
-              <li className="pagination--font">...</li>
-            </ul>
-            <button className="pagination--font next-button">Siguiente</button>
-          </div>
-          <footer>
-            <ul>
-              <li className="font">Acerca de</li>
-              <li className="font">Accesibilidad</li>
-              <li className="font">Centro de ayuda</li>
-              <li className="font">Privacidad y condiciones</li>
-              <li className="font"> Opciones de publicidad</li>
-              <li className="font">Publicidad</li>
-              <li className="font">Servicios empresariales</li>
-              <li className="font">Descargar la aplicación de LinkedIn</li>
-              <li className="font">Más</li>
-            </ul>
-            <p className="font">LinkedIn Corporation © 2025</p>
-          </footer>
+          <Pagination />
+          <Footer />
         </div>
-        <div className="job-application"></div>
+        <div className="job-application">
+          <JobApplication />
+        </div>
       </div>
     </>
   );

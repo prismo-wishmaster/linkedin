@@ -22,9 +22,9 @@ export const CardJob = ({ jobOffer, idCard }: JobOfferProps) => {
     >
       <img src={jobOffer.companyLogoUrl} alt="" className="logo-image" />
       <div className="description">
-        <h1 className="font font--job-title">{jobOffer.jobTitle}</h1>
-        <h2 className="font font--company-title">{jobOffer.companyName}</h2>
-        <p className="font font--location">
+        <h1 className="font--job-title">{jobOffer.jobTitle}</h1>
+        <h2 className="font--company-title">{jobOffer.companyName}</h2>
+        <p className="font--location">
           {jobOffer.location} ({jobOffer.workMode})
         </p>
         {jobOffer.isActivelyEvaluating && (
@@ -34,17 +34,13 @@ export const CardJob = ({ jobOffer, idCard }: JobOfferProps) => {
               src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Eo_circle_green_checkmark.svg"
               alt=""
             />
-            <p className="font font--small">
-              Evaluando solicitudes de forma activa
-            </p>
+            <p className="font--small">Evaluando solicitudes de forma activa</p>
           </div>
         )}
         <div className="align-center properties">
-          {jobOffer.isPromoted && (
-            <p className="font font--small">Promocionado</p>
-          )}
+          {jobOffer.isPromoted && <p className="font--small">Promocionado</p>}
           {jobOffer.easyApply && (
-            <p className="font font--small">Solicitud sencilla</p>
+            <p className="font--small">Solicitud sencilla</p>
           )}
         </div>
       </div>
