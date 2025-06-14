@@ -1,49 +1,58 @@
-import { useCardJobStore } from "../../store/CardJob/CardJob.store";
 import type { JobOffer } from "../../types/CardJob";
 import "./CardJob.css";
 
-type JobOfferProps = {
+interface CardJobProps {
   jobOffer: JobOffer;
-  idCard: string;
-};
+  isSelect: boolean;
+  onClick: () => void;
+}
 
-export const CardJob = ({ jobOffer, idCard }: JobOfferProps) => {
-  const idCardFocus = useCardJobStore((state) => state.idCardJobFocus);
-  const setIdCardJobFocus = useCardJobStore((state) => state.setIdCardJobFocus);
-  const idFocus = idCard == idCardFocus ? true : false;
-
+export const CardJob = ({ jobOffer, isSelect, onClick }: CardJobProps) => {
   return (
-    <article
-      onClick={() => setIdCardJobFocus(idCard)}
-      style={{
-        borderLeft: idFocus ? "2px solid black" : "2px solid white",
-        backgroundColor: idFocus ? "rgba(0, 0, 0, 0.07)" : "white",
-      }}
+    <button
+      onClick={onClick}
+      className={`flex pt-3 pl-3 cursor-pointer focus:border-l-2 h1:underline border-l-2 ${
+        isSelect ? "border-black bg-[#00000012]" : "border-white"
+      }`}
     >
-      <img src={jobOffer.companyLogoUrl} alt="" className="logo-image" />
-      <div className="description">
-        <h1 className="font--job-title">{jobOffer.jobTitle}</h1>
-        <h2 className="font--company-title">{jobOffer.companyName}</h2>
-        <p className="font--location">
+      <img
+        src={jobOffer.companyLogoUrl}
+        alt=""
+        className="w-[3.5rem] h-[3.5rem]"
+      />
+      <div className="flex flex-col w-full border-b border-[#8c8c8c33] pb-3.5 pl-3.5 items-start">
+        <h1 className="text-base font-semibold text-[#0a66c2]">
+          {jobOffer.jobTitle}
+        </h1>
+        <h2 className="text-[0.85rem font-normal]">{jobOffer.companyName}</h2>
+        <p className="text-[0.9rem] font-normal text-[#000000b3]">
           {jobOffer.location} ({jobOffer.workMode})
         </p>
         {jobOffer.isActivelyEvaluating && (
-          <div className="align-center">
+          <div className="flex items-center">
             <img
-              className="check-mark"
+              className="my-0 mx-2.5 w-3.5 h-3.5"
               src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Eo_circle_green_checkmark.svg"
               alt=""
             />
-            <p className="font--small">Evaluando solicitudes de forma activa</p>
+            <p className="text-[0.75rem font-normal text-[#000000b3]">
+              Evaluando solicitudes de forma activa
+            </p>
           </div>
         )}
-        <div className="align-center properties">
-          {jobOffer.isPromoted && <p className="font--small">Promocionado</p>}
+        <div className="flex gap-2.5 items-center">
+          {jobOffer.isPromoted && (
+            <p className="text-[0.75rem font-normal text-[#000000b3]">
+              Promocionado
+            </p>
+          )}
           {jobOffer.easyApply && (
-            <p className="font--small">Solicitud sencilla</p>
+            <p className="text-[0.75rem font-normal text-[#000000b3]">
+              Solicitud sencilla
+            </p>
           )}
         </div>
       </div>
-    </article>
+    </button>
   );
 };
